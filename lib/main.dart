@@ -1,4 +1,5 @@
 
+import 'package:dgs_rehber/kronometre.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: const Anasayfa(title: 'DGS Puan Hesaplama'),
+      home: FlutterStopWatch(),
     );
   }
 }
