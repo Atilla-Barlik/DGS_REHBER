@@ -1,4 +1,5 @@
 
+import 'package:dgs_rehber/TemaRengi.dart';
 import 'package:dgs_rehber/kronometre.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'DGS REHBER',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Palette.kToDark,
       ),
-      home: FlutterStopWatch(),
+      home: Anasayfa(title: "Anasayfa"),
     );
   }
 }
@@ -52,7 +53,7 @@ class _AnasayfaState extends State<Anasayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white12,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -74,7 +75,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           "Sözel",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white70,
                               fontWeight: FontWeight.w900,
                               fontStyle: FontStyle.normal,
                               fontFamily: 'Open Sans',
@@ -91,7 +92,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.orange,
-                          style: TextStyle(color: Colors.black,fontSize: 20),
+                          style: TextStyle(color: Colors.black,fontSize: 30),
                           maxLength: 2,
                           decoration: InputDecoration(
                             fillColor: Colors.white24,
@@ -117,7 +118,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.orange,
-                          style: TextStyle(color: Colors.black,fontSize: 20),
+                          style: TextStyle(color: Colors.black,fontSize: 30),
                           maxLength: 2,
                           decoration: InputDecoration(
                             fillColor: Colors.white24,
@@ -148,7 +149,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           "Sayısal",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white70,
                               fontWeight: FontWeight.w900,
                               fontStyle: FontStyle.normal,
                               fontFamily: 'Open Sans',
@@ -166,7 +167,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.orange,
-                          style: TextStyle(color: Colors.black,fontSize: 20),
+                          style: TextStyle(color: Colors.black,fontSize: 30),
                           maxLength: 2,
                           decoration: InputDecoration(
                             fillColor: Colors.white24,
@@ -192,7 +193,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.orange,
-                          style: TextStyle(color: Colors.black,fontSize: 20),
+                          style: TextStyle(color: Colors.black,fontSize: 30),
                           maxLength: 2,
                           decoration: InputDecoration(
                             fillColor: Colors.white24,
@@ -223,7 +224,7 @@ class _AnasayfaState extends State<Anasayfa> {
                           "Önlisans Başarı Puanı",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white70,
                               fontWeight: FontWeight.w900,
                               fontStyle: FontStyle.normal,
                               fontFamily: 'Open Sans',
@@ -242,7 +243,7 @@ class _AnasayfaState extends State<Anasayfa> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             cursorColor: Colors.orange,
-                            style: TextStyle(color: Colors.black,fontSize: 20),
+                            style: TextStyle(color: Colors.black,fontSize: 30),
                             maxLength: 2,
                             decoration: InputDecoration(
                               fillColor: Colors.white24,
@@ -271,7 +272,7 @@ class _AnasayfaState extends State<Anasayfa> {
                         "Bir Bölüme Yerleştim",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white70,
                             fontWeight: FontWeight.w900,
                             fontStyle: FontStyle.normal,
                             fontFamily: 'Open Sans',
@@ -418,4 +419,5 @@ class _AnasayfaState extends State<Anasayfa> {
 
     );
   }
+
 }

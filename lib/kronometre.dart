@@ -55,7 +55,8 @@ class _FlutterStopWatchState extends State<FlutterStopWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Flutter StopWatch")),
+      backgroundColor: Colors.grey,
+      appBar: AppBar(title: Text("Kronometre")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,62 +67,66 @@ class _FlutterStopWatchState extends State<FlutterStopWatch> {
                 fontSize: 90.0,
               ),
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height: 70.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-                  child: ElevatedButton(
-
-
-                    onPressed: () {
-                      timerStream = stopWatchStream();
-                      timerSubscription = timerStream.listen((int newTick) {
-                        setState(() {
-                          hoursStr = ((newTick / (60 * 60)) % 60)
-                              .floor()
-                              .toString()
-                              .padLeft(2, '0');
-                          minutesStr = ((newTick / 60) % 60)
-                              .floor()
-                              .toString()
-                              .padLeft(2, '0');
-                          secondsStr =
-                              (newTick % 60).floor().toString().padLeft(2, '0');
+                  child: SizedBox(
+                    width: 150,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        timerStream = stopWatchStream();
+                        timerSubscription = timerStream.listen((int newTick) {
+                          setState(() {
+                            hoursStr = ((newTick / (60 * 60)) % 60)
+                                .floor()
+                                .toString()
+                                .padLeft(2, '0');
+                            minutesStr = ((newTick / 60) % 60)
+                                .floor()
+                                .toString()
+                                .padLeft(2, '0');
+                            secondsStr =
+                                (newTick % 60).floor().toString().padLeft(2, '0');
+                          });
                         });
-                      });
-                    },
+                      },
 
-                    child: Text(
-                      'START',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                      child: Text(
+                        'BAŞLAT',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: 40.0),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-                  child: ElevatedButton(
+                  child: SizedBox(
+                    width: 150,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        timerSubscription.cancel();
 
+                        setState(() {
+                          hoursStr = '00';
+                          minutesStr = '00';
+                          secondsStr = '00';
+                        });
+                      },
 
-                    onPressed: () {
-                      timerSubscription.cancel();
-
-                      setState(() {
-                        hoursStr = '00';
-                        minutesStr = '00';
-                        secondsStr = '00';
-                      });
-                    },
-
-                    child: Text(
-                      'RESET',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
+                      child: Text(
+                        'SIFIRLA',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
