@@ -55,8 +55,7 @@ class _FlutterStopWatchState extends State<FlutterStopWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(title: Text("Kronometre")),
+      backgroundColor: Colors.white12,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
