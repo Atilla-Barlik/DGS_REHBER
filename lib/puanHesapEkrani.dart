@@ -1,3 +1,5 @@
+import 'package:dgs_rehber/DenemeListesiEkrani.dart';
+import 'package:dgs_rehber/denemeModeli.dart';
 import 'package:flutter/material.dart';
 
 class puanHesapEkrani extends StatefulWidget {
@@ -17,12 +19,13 @@ class _puanHesapEkraniState extends State<puanHesapEkrani> {
   var Sayisalsonuc;
   var Sozelsonuc;
   var EAsonuc;
-
+  bool isSwitched = false;
+  late deneme d1;
   var sozelYanlis,sozelDogru,sayisalYanlis,sayisalDogru;
   var sozelNet,sayisalNet,sozelSonuc,sayisalSonuc,eaSonuc;
 
 
-  bool isSwitched = false;
+
 
 
   @override
@@ -277,55 +280,35 @@ class _puanHesapEkraniState extends State<puanHesapEkrani> {
                           setState(() {
 
                             if(sozelY.text == "")
-                            {
                               sozelY.text = "0";
-                            }
+
                             if(sozelD.text == "")
-                            {
                               sozelD.text = "0";
-                            }
+
                             if(sayisalY.text == "")
-                            {
                               sayisalY.text = "0";
-                            }
+
                             if(sayisalD.text == "")
-                            {
                               sayisalD.text = "0";
-                            }
+
                             if(onlBP.text == "")
-                            {
                               onlBP.text = "40";
-                            }
+
                             sozelYanlis = int.parse(sozelY.text);
                             sozelDogru = int.parse(sozelD.text);
                             sayisalYanlis = int.parse(sayisalY.text);
                             sayisalDogru = int.parse(sayisalD.text);
-                            sozelNet = sozelDogru-(sozelYanlis/4);
-                            sayisalNet = sayisalDogru-(sayisalYanlis/4);
-                            if(isSwitched == true)
-                            {
-                              sozelSonuc = (sozelNet * 3.091) + (sayisalNet * 0.584)+ (int.parse(onlBP.text) * 0.45) + 127.703;
-                              sayisalSonuc = (sozelNet * 0.618) + (sayisalNet * 2.905) + (int.parse(onlBP.text) * 0.45) + 127.703;
-                              EAsonuc = (sozelNet * 1.855) + (sayisalNet * 1.747) + (int.parse(onlBP.text) * 0.45) + 136.564;
-                              sozelSonuc.toStringAsFixed(3);
-                              sayisalSonuc.toStringAsFixed(3);
+
+                            d1 = deneme(sozelDogru: sozelDogru, sozelYanlis: sozelYanlis, sayisalDogru: sayisalDogru, sayisalYanlis: sayisalYanlis, obp: int.parse(onlBP.text),isSwitched: isSwitched);
+
+                              sozelSonuc = d1.sozelSonuc();
+                              sayisalSonuc = d1.sayisalSonuc();
+                              EAsonuc = d1.eaSonuc();
 
                               sozelSonuc = num.parse(sozelSonuc.toStringAsFixed(3));
                               sayisalSonuc = num.parse(sayisalSonuc.toStringAsFixed(3));
                               EAsonuc = num.parse(EAsonuc.toStringAsFixed(3));
-                            }
-                            else
-                            {
-                              sozelSonuc = (sozelNet * 3.091) + (sayisalNet * 0.584)+ (int.parse(onlBP.text) * 0.6) + 127.703;
-                              sayisalSonuc = (sozelNet * 0.618) + (sayisalNet * 2.905) + (int.parse(onlBP.text) * 0.6) + 127.703;
-                              EAsonuc = (sozelNet * 1.855) + (sayisalNet * 1.747) + (int.parse(onlBP.text) * 0.6) + 136.564;
-                              sozelSonuc.toStringAsFixed(3);
-                              sayisalSonuc.toStringAsFixed(3);
 
-                              sozelSonuc = num.parse(sozelSonuc.toStringAsFixed(3));
-                              sayisalSonuc = num.parse(sayisalSonuc.toStringAsFixed(3));
-                              EAsonuc = num.parse(EAsonuc.toStringAsFixed(3));
-                            }
                           });
                           showDialog(
                             context: context,
@@ -382,14 +365,11 @@ class _puanHesapEkraniState extends State<puanHesapEkrani> {
                     ),
                   ),
                 ],
-              )
-
+              ),
             ],
           ),
         ),
       ),
-
     );
-
   }
 }

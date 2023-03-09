@@ -1,3 +1,4 @@
+import 'package:dgs_rehber/DenemeListesiEkrani.dart';
 import 'package:dgs_rehber/kronometre.dart';
 import 'package:dgs_rehber/puanHesapEkrani.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class bottomNavigationBar extends StatefulWidget {
 
 class _bottomNavigationBarState extends State<bottomNavigationBar> {
 
-  var sayfaListesi = [puanHesapEkrani(),FlutterStopWatch()];
+  var sayfaListesi = [puanHesapEkrani(),FlutterStopWatch(),denemeListesi()];
   int secilenIndex = 0;
 
   @override
@@ -28,6 +29,10 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
           BottomNavigationBarItem(
               icon: Icon(Icons.watch_later),
               label:"Kronometre",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label:"Denemeler",
           ),
         ],
         unselectedItemColor: Colors.white70,

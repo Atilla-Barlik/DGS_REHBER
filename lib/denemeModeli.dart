@@ -5,9 +5,10 @@ class deneme
   int sayisalDogru;
   int sayisalYanlis;
   int obp;
+  bool isSwitched;
 
   deneme({required this.sozelDogru,required this.sozelYanlis,required this.sayisalDogru,
-   required this.sayisalYanlis,required this.obp});
+   required this.sayisalYanlis,required this.obp, required this.isSwitched});
 
 
   double sozelNet()
@@ -21,29 +22,65 @@ class deneme
     return sayisalNet;
   }
 
-  double sozelSonuc()
+  double? sozelSonuc()
   {
-    double sozelnet = sozelNet();
-    double sayisalnet = sayisalNet();
-    double sozelSonuc = (sozelnet * 3.091) + (sayisalnet * 0.584)+ (obp * 0.45) + 127.703;
-    return sozelSonuc;
+
+    if(isSwitched == true)
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 3.091) + (sayisalnet * 0.584)+ (obp * 0.45) + 127.703;
+        net = num.parse(net.toStringAsFixed(3)) as double?;
+        return  net;
+      }
+    else
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 3.091) + (sayisalnet * 0.584)+ (obp * 0.60) + 127.703;
+        net = num.parse(net.toStringAsFixed(3)) as double?;
+        return  net;
+      }
   }
 
-  double sayisalSonuc()
+  double? sayisalSonuc()
   {
-    double sozelnet = sozelNet();
-    double sayisalnet = sayisalNet();
-    double sayisalSonuc = (sozelnet * 0.618) + (sayisalnet * 2.905) + (obp * 0.45) + 127.703;
-    return sayisalSonuc;
+    if(isSwitched == true)
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 0.618) + (sayisalnet * 2.905) + (obp * 0.45) + 127.703;
+        net = num.parse(net.toStringAsFixed(3)) as double?;
+        return net;
+      }
+    else
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 0.618) + (sayisalnet * 2.905) + (obp * 0.60) + 127.703;
+        net = num.parse(net.toStringAsFixed(3)) as double?;
+        return  net;
+      }
   }
 
-  double eaSonuc()
+  double? eaSonuc()
   {
-    double sozelnet = sozelNet();
-    double sayisalnet = sayisalNet();
-    double EAsonuc = (sozelnet * 1.855) + (sayisalnet * 1.747) + (obp * 0.45) + 136.564;
-    return EAsonuc;
+    if(isSwitched == true)
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 1.855) + (sayisalnet * 1.747) + (obp * 0.45) + 136.564;
+        net = num.parse(net.toStringAsFixed(3)) as double?;
+        return net;
+      }
+    else
+      {
+        double sozelnet = sozelNet();
+        double sayisalnet = sayisalNet();
+        double? net = (sozelnet * 1.855) + (sayisalnet * 1.747) + (obp * 0.60) + 136.564;
+        net = num.parse(net.toStringAsFixed(3)) as double;
+        return net;
+      }
   }
-
 }
 
